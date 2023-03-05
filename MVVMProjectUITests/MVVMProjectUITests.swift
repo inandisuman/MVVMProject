@@ -2,7 +2,7 @@
 //  MVVMProjectUITests.swift
 //  MVVMProjectUITests
 //
-//  Created by Deboleena on 05/03/23.
+//  Created by Suman Nandi on 05/03/23.
 //
 
 import XCTest

@@ -12,8 +12,21 @@ class UsersSplitViewontroller: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        // Instantiate   view model
         let userListViewModel = UserListViewModel()
+        // Bind view model using delegation
+        userListViewModel.delegate = self
+        // Fetch user list from service
         userListViewModel.getUserListFromService()
+    }
+}
+
+extension UsersSplitViewontroller: UserListViewModelDelegate {
+    func didReceiveUserListFromService(result: [User]?) {
+        if let users = result {
+            print("Display \(users.count) users on table view")
+        } else {
+            print("Nothing to display on table view")
+        }
     }
 }

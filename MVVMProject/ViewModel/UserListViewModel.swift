@@ -7,18 +7,23 @@
 
 import Foundation
 
+protocol UserListViewModelDelegate: NSObject {
+    func didReceiveUserListFromService(result: [User]?)
+}
+
 class UserListViewModel {
     
-    func getUserListFromService() {
+    weak var delegate: UserListViewModelDelegate?
         
-        let url = URL(string: "https://jsonplaceholder.typicode.com/users")
+    func getUserListFromService() {
 
-        NetworkManager.shared.performAPICall(url: url!, httpMethod: "GET") { (result: Result<[User], Error>) in
+        NetworkManager.shared.performAPICall(url: URL(string: K.APIEndpoints.getUserList)!, httpMethod: "GET") { (result: Result<[User], Error>) in
             switch result {
             case .success(let users):
-                print("Users from API - \(users)")
+                self.delegate?.didReceiveUserListFromService(result: users)
             case .failure(let error):
                 print("Failed due to - \(error.localizedDescription)")
+                self.delegate?.didReceiveUserListFromService(result: nil)
             }
         }
     }

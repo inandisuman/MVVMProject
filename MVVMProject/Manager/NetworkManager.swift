@@ -7,14 +7,18 @@
 
 import Foundation
 
+enum APIError: Error {
+    case invalidResponse
+    case noInternet
+    case invalidStatusCode
+    case decodingError
+}
+
 class NetworkManager {
     
-    enum APIError: Error {
-        case invalidResponse
-        case noInternet
-        case invalidStatusCode
-        case decodingError
-    }
+    static let shared = NetworkManager()
+    
+    private init() {}
     
     /// Request data from an endpoint
         /// - Parameters:

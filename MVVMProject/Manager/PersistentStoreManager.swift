@@ -70,14 +70,14 @@ class PersistentStoreManager {
     }
     
     // MARK: - Core Data : READ
-    func readData() -> LoginUser? {
+    func readData() -> [LoginUser]? {
         // Create a context from this container
         let managedContext = persistentContainer.viewContext
         // Prepare the NSFetchRequest for the entity
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "LoginUser")
         // Retrieve data from context
         do {
-            let result = try managedContext.fetch(fetchRequest).first as! LoginUser
+            let result = try managedContext.fetch(fetchRequest) as! [LoginUser]
             return result
         } catch let error as NSError {
             debugPrint("Could not retrieve : \(error.userInfo)")

@@ -15,6 +15,7 @@ class UserListViewModel {
     
     weak var delegate: UserListViewModelDelegate?
         
+    /// Fetch user list from service
     func getUserListFromService() {
 
         NetworkManager.shared.performAPICall(url: URL(string: K.APIEndpoints.getUserList)!, httpMethod: "GET") { (result: Result<[User], Error>) in

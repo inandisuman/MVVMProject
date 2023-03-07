@@ -164,6 +164,7 @@
                         <outlet property="passwordValidationLabel" destination="3FC-No-zJV" id="9OS-km-E2I"/>
                         <outlet property="userNameField" destination="jSj-rY-bfJ" id="cmj-94-CKF"/>
                         <outlet property="userNameValidationLabel" destination="oeH-V1-eLo" id="Uk2-CR-vnA"/>
+                        <segue destination="I2f-oM-Kpn" kind="show" identifier="SplitView" id="Nq4-ya-gYJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -175,7 +176,7 @@
             <objects>
                 <viewController id="I2f-oM-Kpn" userLabel="UsersSplitViewontroller" customClass="UsersSplitViewontroller" customModule="MVVMProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="k6H-E2-xOQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="rfh-f3-bcq"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCq-HJ-pzy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="98"/>
+            <point key="canvasLocation" x="975" y="94"/>
         </scene>
     </scenes>
     <resources>

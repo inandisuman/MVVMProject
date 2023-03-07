@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     var selectedCountry: String?
     
     var currentState: UserState = .login
-    
+        
     enum UserState {
         case login
         case register
@@ -50,6 +50,8 @@ class LoginViewController: UIViewController {
      */
     func resetSignInForm() {
         currentState = .login
+        userNameField.text = ""
+        passwordField.text = ""
         userNameValidationLabel.isHidden = true
         passwordValidationLabel.isHidden = true
         countryValidationLabel.isHidden = true
@@ -60,6 +62,10 @@ class LoginViewController: UIViewController {
     
     func resetRegisterForm() {
         currentState = .register
+        userNameField.text = ""
+        passwordField.text = ""
+        userNameValidationLabel.isHidden = true
+        passwordValidationLabel.isHidden = true
         countryValidationLabel.isHidden = true
         countryListPicker.isHidden = false
         // Load country picker
@@ -132,7 +138,52 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-
+        switch currentState {
+        case .login:
+            // Perfrom login
+            let isAuth = LoginViewModel().authenticateUser(username: userNameField.text!, password: passwordField.text!)
+            if isAuth {
+                // Navigate to Split view
+                performSegue(withIdentifier: "SplitView", sender: nil)
+            } else {
+                // Show login error
+                // Create a new alert
+                let errorMessage = UIAlertController(title: "Error", message: K.WarningMessage.loginErrorMsg, preferredStyle: .alert)
+                // Create OK button with action handler
+                 let ok = UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) -> Void in
+                     self?.resetSignInForm()
+                  })
+                 
+                 //Add OK button to a dialog message
+                errorMessage.addAction(ok)
+                // Present alert to user
+                self.present(errorMessage, animated: true, completion: nil)
+            }
+        case .register:
+            guard let selectedCountry = selectedCountry else {
+                countryValidationLabel.text = K.WarningMessage.countrySelectionMsg
+                countryValidationLabel.isHidden = false
+                return
+            }
+            // Perfrom registration
+            let isRegistrationSuccess = RegistrationViewModel(username: userNameField.text!, password: passwordField.text!, country: selectedCountry).registerUser()
+            if isRegistrationSuccess {
+                // Navigate to Split view
+                performSegue(withIdentifier: "SplitView", sender: nil)
+            } else {
+                // Show Registration error
+                // Create a new alert
+                let errorMessage = UIAlertController(title: "Error", message: K.WarningMessage.registrationErrorMsg, preferredStyle: .alert)
+                // Create OK button with action handler
+                 let ok = UIAlertAction(title: "OK", style: .default, handler: { [weak self] (action) -> Void in
+                     self?.resetRegisterForm()
+                  })
+                 //Add OK button to a dialog message
+                errorMessage.addAction(ok)
+                // Present alert to user
+                self.present(errorMessage, animated: true, completion: nil)
+            }
+        }
     }
 }
 

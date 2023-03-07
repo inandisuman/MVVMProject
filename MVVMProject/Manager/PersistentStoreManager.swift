@@ -44,7 +44,7 @@ class PersistentStoreManager {
     }()
     
     // MARK: - Core Data : CREATE
-    func createData(for data: LoginUser) -> Bool {
+    func createData(for data: NewUser) -> Bool {
         // Create a context from this container
         let managedContext = persistentContainer.viewContext
         // Create an entity

@@ -16,6 +16,8 @@ struct K {
         static let passwordRuleMsg = "Your password is too short."
         static let usernameMissingMsg = "Username cannot be empty."
         static let countrySelectionMsg = "Please select a country."
+        static let registrationErrorMsg = "Registration failed."
+        static let loginErrorMsg = "Login failed."
     }
 }
 

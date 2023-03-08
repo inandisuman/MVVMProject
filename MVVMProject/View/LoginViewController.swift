@@ -45,9 +45,8 @@ class LoginViewController: UIViewController {
         resetSignInForm()
     }
     
-    /*
-     Reset forms
-     */
+    // MARK: - Reset Forms
+    
     func resetSignInForm() {
         currentState = .login
         userNameField.text = ""
@@ -74,9 +73,8 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Create Account", for: .normal)
     }
     
-    /*
-     Validate forms
-     */
+    // MARK: - Validate Forms
+    
     func validateUsernameField() -> Bool {
         // Validate Username Field
         let (valid, message) = validateFormFields(userNameField)
@@ -187,7 +185,7 @@ class LoginViewController: UIViewController {
     }
 }
 
-// MARK: - UITextField
+// MARK: - UITextField Delegates
 
 extension LoginViewController: UITextFieldDelegate {
     
@@ -210,7 +208,7 @@ extension LoginViewController: UITextFieldDelegate {
     }
 }
 
-// MARK: - UIPickerView
+// MARK: - UIPickerView Delegates
 
 extension LoginViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     

@@ -24,6 +24,7 @@
 		5168AD7E29B4C41C00F9AFE5 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168AD7D29B4C41C00F9AFE5 /* NetworkManager.swift */; };
 		5168AD8029B4C4B800F9AFE5 /* PersistentStoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5168AD7F29B4C4B800F9AFE5 /* PersistentStoreManager.swift */; };
 		5180ADD029B62FB900FC93CC /* UtilityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180ADCF29B62FB900FC93CC /* UtilityService.swift */; };
+		5180ADD229B85CC500FC93CC /* UserDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5180ADD129B85CC400FC93CC /* UserDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		5168AD7D29B4C41C00F9AFE5 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5168AD7F29B4C4B800F9AFE5 /* PersistentStoreManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentStoreManager.swift; sourceTree = "<group>"; };
 		5180ADCF29B62FB900FC93CC /* UtilityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilityService.swift; sourceTree = "<group>"; };
+		5180ADD129B85CC400FC93CC /* UserDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				5168AD3F29B4B9EB00F9AFE5 /* LoginViewController.swift */,
 				5168AD7A29B4C38100F9AFE5 /* UsersSplitViewontroller.swift */,
+				5180ADD129B85CC400FC93CC /* UserDetailsViewController.swift */,
 				5168AD4129B4B9EB00F9AFE5 /* Main.storyboard */,
 			);
 			path = View;
@@ -332,6 +335,7 @@
 			files = (
 				5168AD7329B4C24200F9AFE5 /* LoginModel.swift in Sources */,
 				5168AD7929B4C2DD00F9AFE5 /* UserListViewModel.swift in Sources */,
+				5180ADD229B85CC500FC93CC /* UserDetailsViewController.swift in Sources */,
 				5168AD8029B4C4B800F9AFE5 /* PersistentStoreManager.swift in Sources */,
 				5168AD7E29B4C41C00F9AFE5 /* NetworkManager.swift in Sources */,
 				5168AD4029B4B9EB00F9AFE5 /* LoginViewController.swift in Sources */,

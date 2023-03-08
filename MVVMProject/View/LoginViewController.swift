@@ -122,6 +122,16 @@ class LoginViewController: UIViewController {
         return (text.count > 0, K.WarningMessage.usernameMissingMsg)
     }
     
+    func navigateToSplitView() {
+        let splitVC = UISplitViewController()
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        if let masterVC = sb.instantiateViewController(withIdentifier:"MasterVC") as? UsersSplitViewontroller {
+            splitVC.viewControllers = [UINavigationController(rootViewController: masterVC)]
+        }
+        present(splitVC, animated: true)
+    }
+
+    
     // MARK: - IBActions
     
     @IBAction func optionsDidChange(_ sender: UISegmentedControl) {
@@ -142,7 +152,7 @@ class LoginViewController: UIViewController {
             let isAuth = LoginViewModel().authenticateUser(username: userNameField.text!, password: passwordField.text!)
             if isAuth {
                 // Navigate to Split view
-                performSegue(withIdentifier: "SplitView", sender: nil)
+                navigateToSplitView()
             } else {
                 // Show login error
                 // Create a new alert
@@ -167,7 +177,7 @@ class LoginViewController: UIViewController {
             let isRegistrationSuccess = RegistrationViewModel(username: userNameField.text!, password: passwordField.text!, country: selectedCountry).registerUser()
             if isRegistrationSuccess {
                 // Navigate to Split view
-                performSegue(withIdentifier: "SplitView", sender: nil)
+                navigateToSplitView()
             } else {
                 // Show Registration error
                 // Create a new alert
